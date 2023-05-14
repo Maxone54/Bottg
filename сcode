@@ -1,0 +1,12 @@
+import telebot
+
+bot_token = "TOKEN_ВАШЕГО_БОТА"
+admin_chat_id = "ID_ЧАТА_АДМИНИСТРАТОРА"
+
+bot = telebot.TeleBot(bot_token)
+
+@bot.message_handler(content_types=["text"])
+def send_to_admin(message):
+    bot.send_message(admin_chat_id, message.text)
+
+bot.polling()
